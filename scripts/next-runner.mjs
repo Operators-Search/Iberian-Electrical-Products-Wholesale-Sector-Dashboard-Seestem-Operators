@@ -5,6 +5,7 @@ import path from "node:path";
 import { spawn } from "node:child_process";
 
 const DIST_DIR_NAME = "next-build-link";
+const USE_LOCAL_WINDOWS_BUILD_WORKAROUND = process.platform === "win32" && !process.env.VERCEL;
 
 function getExternalBuildTarget(projectRoot) {
   const localAppData = process.env.LOCALAPPDATA || path.join(os.homedir(), "AppData", "Local");
@@ -39,6 +40,10 @@ function ensureJunction(linkPath, targetPath) {
 }
 
 function prepareNextBuildDir(nextArgs) {
+  if (!USE_LOCAL_WINDOWS_BUILD_WORKAROUND) {
+    return;
+  }
+
   const command = nextArgs[0];
   if (command === "build") {
     removePath(targetPath);

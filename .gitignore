@@ -1,0 +1,13 @@
+.next
+next-build
+next-build-link
+junction-test
+node_modules
+.vercel
+.env
+.env.local
+.env*.local
+coverage
+dist
+*.log
+*.tsbuildinfo

@@ -1,0 +1,39 @@
+{
+  "name": "iberian-electrical-products-sector-dashboard",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@10.33.0",
+  "scripts": {
+    "dev": "\"C:/Users/luisb/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node.exe\" ./scripts/next-runner.mjs dev",
+    "build": "\"C:/Users/luisb/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node.exe\" ./scripts/next-runner.mjs build",
+    "start": "\"C:/Users/luisb/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node.exe\" ./scripts/next-runner.mjs start",
+    "lint": "\"C:/Users/luisb/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node.exe\" ./node_modules/eslint/bin/eslint.js .",
+    "typecheck": "\"C:/Users/luisb/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node.exe\" ./scripts/typecheck-runner.mjs",
+    "import:data": "\"C:/Users/luisb/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node.exe\" ./node_modules/tsx/dist/cli.mjs scripts/import-data.ts"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.57.0",
+    "clsx": "^2.1.1",
+    "d3-geo": "^3.1.1",
+    "next": "^15.5.2",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "recharts": "^3.1.2",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.1",
+    "@next/eslint-plugin-next": "^15.5.2",
+    "@tailwindcss/postcss": "^4.1.13",
+    "@types/d3-geo": "^3.1.0",
+    "@types/node": "^24.3.1",
+    "@types/react": "^19.1.6",
+    "@types/react-dom": "^19.1.9",
+    "eslint": "^9.35.0",
+    "eslint-config-next": "^15.5.2",
+    "eslint-plugin-react-hooks": "^7.0.0",
+    "tailwindcss": "^4.1.13",
+    "tsx": "^4.19.1",
+    "typescript": "^5.8.3"
+  }
+}

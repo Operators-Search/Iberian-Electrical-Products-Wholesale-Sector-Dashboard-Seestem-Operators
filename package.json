@@ -4,12 +4,12 @@
   "private": true,
   "packageManager": "pnpm@10.33.0",
   "scripts": {
-    "dev": "\"C:/Users/luisb/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node.exe\" ./scripts/next-runner.mjs dev",
-    "build": "\"C:/Users/luisb/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node.exe\" ./scripts/next-runner.mjs build",
-    "start": "\"C:/Users/luisb/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node.exe\" ./scripts/next-runner.mjs start",
-    "lint": "\"C:/Users/luisb/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node.exe\" ./node_modules/eslint/bin/eslint.js .",
-    "typecheck": "\"C:/Users/luisb/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node.exe\" ./scripts/typecheck-runner.mjs",
-    "import:data": "\"C:/Users/luisb/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node.exe\" ./node_modules/tsx/dist/cli.mjs scripts/import-data.ts"
+    "dev": "tsx ./scripts/next-runner.mjs dev",
+    "build": "tsx ./scripts/next-runner.mjs build",
+    "start": "tsx ./scripts/next-runner.mjs start",
+    "lint": "eslint .",
+    "typecheck": "tsx ./scripts/typecheck-runner.mjs",
+    "import:data": "tsx scripts/import-data.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.57.0",

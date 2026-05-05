@@ -62,12 +62,14 @@ Copy `.env.example` to `.env.local` and fill in the values:
 NEXT_PUBLIC_SUPABASE_URL=
 NEXT_PUBLIC_SUPABASE_ANON_KEY=
 SUPABASE_SERVICE_ROLE_KEY=
+CRON_SECRET=
 ```
 
 Notes:
 
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY` is used by the Next.js app for public read queries
 - `SUPABASE_SERVICE_ROLE_KEY` is only used by `scripts/import-data.ts`
+- `CRON_SECRET` is recommended for the Vercel keepalive cron route and should be a long random string
 
 ## 3. Create the database schema in Supabase
 
@@ -143,8 +145,29 @@ Recommended Vercel environment variables:
 
 - `NEXT_PUBLIC_SUPABASE_URL`
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+- `CRON_SECRET`
 
 Do not expose `SUPABASE_SERVICE_ROLE_KEY` to the browser. Keep it only for import tasks or secure server-side jobs.
+
+## Prevent Supabase inactivity pause on Free
+
+This project includes a production-only Vercel cron job in `vercel.json` that calls:
+
+- `/api/keepalive`
+
+The keepalive route:
+
+- expects the `Authorization` header generated automatically by Vercel when `CRON_SECRET` is configured
+- performs a minimal read against `companies`
+- returns a small JSON response and disables caching
+
+Current schedule:
+
+- `0 5 * * *` = once per day at `05:00 UTC`
+
+After adding `CRON_SECRET` in Vercel and redeploying, the cron job should appear in:
+
+- `Project Settings -> Cron Jobs`
 
 ## Notes on metric formatting
 
